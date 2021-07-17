@@ -572,7 +572,7 @@ class _TabItemWidget extends AnimatedWidget {
     final Color selectedColor = tabBar.labelColor ??
         tabBarTheme.labelColor ??
         themeData.primaryTextTheme.bodyText1!.color!;
-    final Color unselectedColor = tabBar.unselectedLabelColor ??
+    final Color unselectedColor = tab.unSelectedLabelColor ??
         tabBarTheme.unselectedLabelColor ??
         selectedColor.withAlpha(0xB2); // 70% alpha
 
@@ -582,8 +582,7 @@ class _TabItemWidget extends AnimatedWidget {
 
     final Color tabColor = selected
         ? Color.lerp(tab.color, tab.unSelectedColor, animation.value)!
-        : Color.lerp(
-            tab.unSelectedColor, tab.unSelectedLabelColor, animation.value)!;
+        : Color.lerp(tab.unSelectedColor, tab.color, animation.value)!;
 
     final padding = selected
         ? lerpDouble(tabBar._selectedTabPadding, tabBar._unselectedTabPadding,
