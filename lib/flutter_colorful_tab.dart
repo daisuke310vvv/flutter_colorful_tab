@@ -7,8 +7,13 @@ import 'package:flutter/rendering.dart';
 
 /// Tab info that hold the title widget and tab color.
 class TabItem {
-  TabItem({required this.color, required this.title, Color? unselectedColor})
-      : this.unSelectedColor = unselectedColor ?? color;
+  TabItem(
+      {required this.color,
+      required this.title,
+      Color? unselectedColor,
+      Color? unselectedLabelColor})
+      : this.unSelectedColor = unselectedColor ?? color,
+        this.unSelectedLabelColor = unselectedLabelColor ?? color;
 
   /// tab color, must be non-null
   final Color color;
@@ -18,6 +23,8 @@ class TabItem {
 
   /// tab color when unselected
   final Color unSelectedColor;
+
+  final Color unSelectedLabelColor;
 }
 
 /// How the tabs should be placed along the main axis in a tabbar.
@@ -575,7 +582,8 @@ class _TabItemWidget extends AnimatedWidget {
 
     final Color tabColor = selected
         ? Color.lerp(tab.color, tab.unSelectedColor, animation.value)!
-        : Color.lerp(tab.unSelectedColor, tab.color, animation.value)!;
+        : Color.lerp(
+            tab.unSelectedColor, tab.unSelectedLabelColor, animation.value)!;
 
     final padding = selected
         ? lerpDouble(tabBar._selectedTabPadding, tabBar._unselectedTabPadding,
