@@ -572,9 +572,7 @@ class _TabItemWidget extends AnimatedWidget {
     final Color selectedColor = tabBar.labelColor ??
         tabBarTheme.labelColor ??
         themeData.primaryTextTheme.bodyText1!.color!;
-    final Color unselectedColor = tab.unSelectedLabelColor ??
-        tabBarTheme.unselectedLabelColor ??
-        selectedColor.withAlpha(0xB2); // 70% alpha
+    final Color unselectedColor = tab.unSelectedLabelColor;
 
     final Color color = selected
         ? Color.lerp(selectedColor, unselectedColor, animation.value)!
