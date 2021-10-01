@@ -97,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage>
                     ]),
                     color: Colors.purple.shade600),
               ],
+              onTap: (_) {},
               controller: _tabController,
             ),
             ColorfulTabBar(
@@ -112,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage>
                 TabItem(color: Colors.blue, title: Text('Tab 4 - Settings')),
                 TabItem(color: Colors.purple, title: Text('Tab 5 - Others')),
               ],
+              onTap: (_) {},
               controller: _tabController,
             ),
             ColorfulTabBar(
@@ -164,6 +166,7 @@ class _MyHomePageState extends State<MyHomePage>
                         ]),
                     color: Colors.purple.shade600),
               ],
+              onTap: (_) {},
               controller: _tabController,
             ),
             ColorfulTabBar(
@@ -185,6 +188,7 @@ class _MyHomePageState extends State<MyHomePage>
                     title: Icon(Icons.devices_other_outlined),
                     color: Colors.purple.shade600),
               ],
+              onTap: (_) {},
               controller: _tabController,
             ),
             ColorfulTabBar(
@@ -213,6 +217,7 @@ class _MyHomePageState extends State<MyHomePage>
                     color: Colors.blue.shade600,
                     unselectedColor: Colors.blue.shade300),
               ],
+              onTap: (_) {},
               controller: _tabController,
             ),
             Expanded(
