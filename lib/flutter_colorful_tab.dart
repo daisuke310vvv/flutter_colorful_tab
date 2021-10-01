@@ -85,6 +85,7 @@ class ColorfulTabBar extends StatefulWidget {
     this.unselectedLabelColor,
     this.labelStyle,
     this.unselectedLabelStyle,
+    this.onTap,
     TabAxisAlignment alignment = TabAxisAlignment.center,
   })  : assert(selectedHeight > 0.0),
         assert(unselectedHeight > 0.0),
@@ -157,6 +158,8 @@ class ColorfulTabBar extends StatefulWidget {
   /// is null, then the text style of the [ThemeData.primaryTextTheme]'s
   /// bodyText1 definition is used.
   final TextStyle? unselectedLabelStyle;
+
+  final Function(int)? onTap;
 
   final CrossAxisAlignment _alignment;
   final double _tabHeight;
@@ -269,6 +272,7 @@ class _ColorfulTabBarState extends State<ColorfulTabBar> {
 
   void _handleTap(int index) {
     assert(index >= 0 && index < widget.tabs.length);
+    if (widget.onTap != null) widget.onTap!(index);
     _controller!.animateTo(index);
   }
 
