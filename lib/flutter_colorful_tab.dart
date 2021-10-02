@@ -183,6 +183,10 @@ class _ColorfulTabBarState extends State<ColorfulTabBar> {
     super.initState();
     _tabKeys = widget.tabs.map((tab) => GlobalKey()).toList();
     _scrollController = ScrollController();
+
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+      _scrollToSelectedTab();
+    });
   }
 
   // If the TabBar is rebuilt with a new tab controller, the caller should
