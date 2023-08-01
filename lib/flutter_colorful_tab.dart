@@ -184,7 +184,7 @@ class _ColorfulTabBarState extends State<ColorfulTabBar> {
     _tabKeys = widget.tabs.map((tab) => GlobalKey()).toList();
     _scrollController = ScrollController();
 
-    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _scrollToSelectedTab();
     });
   }
@@ -565,12 +565,12 @@ class _TabItemWidget extends AnimatedWidget {
     // the same value of inherit. Force that to be inherit=true here.
     final TextStyle defaultStyle = (tabBar.labelStyle ??
             tabBarTheme.labelStyle ??
-            themeData.primaryTextTheme.bodyText1!)
+            themeData.primaryTextTheme.bodyLarge!)
         .copyWith(inherit: true);
     final TextStyle defaultUnselectedStyle = (tabBar.unselectedLabelStyle ??
             tabBarTheme.unselectedLabelStyle ??
             tabBar.labelStyle ??
-            themeData.primaryTextTheme.bodyText1!)
+            themeData.primaryTextTheme.bodyLarge!)
         .copyWith(inherit: true);
     final TextStyle textStyle = selected
         ? TextStyle.lerp(defaultStyle, defaultUnselectedStyle, animation.value)!
@@ -579,7 +579,7 @@ class _TabItemWidget extends AnimatedWidget {
 
     final Color selectedColor = tabBar.labelColor ??
         tabBarTheme.labelColor ??
-        themeData.primaryTextTheme.bodyText1!.color!;
+        themeData.primaryTextTheme.bodyLarge!.color!;
     final Color unselectedColor = tab.unSelectedLabelColor;
 
     final Color color = selected
